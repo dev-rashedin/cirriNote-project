@@ -25,13 +25,13 @@ export default function RootLayout({
     <html
       lang='en'
       suppressHydrationWarning
-      className={`${inter.className} antialiased [scrollbar-gutter:stable]`}
+      className={`${inter.className} antialiased scroll-smooth`}
     >
-      <Navbar/>
       <body className='boundary'>
-        {children}
-      </body>
+      <Navbar />
+        <main>{children}</main>
       <Footer />
+      </body>
     </html>
   );
 }
