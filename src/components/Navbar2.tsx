@@ -6,7 +6,6 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import Ribbon from './Ribbon';
 import NavLinks from './ui/links';
 import Logo from './ui/logo';
-import { FiShoppingCart } from "react-icons/fi";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -46,26 +45,19 @@ const Navbar = () => {
   };
 
   return (
-    <main className='sticky -top-6 z-50 h-26 bg-black/50 shadow-3xl'>
+    <main className='sticky -top-5 z-50 h-24 bg-black/50 shadow-3xl'>
       {/* Ribbon absolutely positioned to avoid layout shift */}
       <div ref={ribbonRef} className='absolute top-0 left-0 right-0 z-20'>
         <Ribbon />
       </div>
 
       {/* Sticky navbar content */}
-      <nav className='boundary h-8 pt-16 flex-between z-30 '>
+      <nav className='boundary h-16 pt-12 flex-between z-30 '>
         <div onClick={handleLogoClick} className='cursor-pointer'>
           <Logo />
         </div>
         <NavLinks />
-        <button className='w-30 rounded-full flex items-center relative p-[2px]  bg-white text-black text-sm group cursor-pointer transition-transform duration-300 ease-in-out'>
-          <span className=' bg-black w-9 h-9 p-3 rounded-full flex-center transition-all duration-300 ease-in-out group-hover:w-full relative'>
-            <FiShoppingCart className='absolute top-2.8 left-2.5 text-green-600 font-bold text-[13px] group-hover:scale-120 transition-all duration-300 ease-in-out' />
-          </span>
-          <span className='absolute right-4 top-2.5 group-hover:text-white'>
-            Try Now
-          </span>
-        </button>
+        <button>Try Now</button>
       </nav>
     </main>
   );

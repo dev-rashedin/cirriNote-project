@@ -10,7 +10,6 @@ export const links = [
   { name: 'Contact', href: '' },
 ];
 
-
 export const socials = [
   {
     name: 'Linkedin',
