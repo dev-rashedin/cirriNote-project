@@ -6,8 +6,8 @@ import { FaXTwitter } from 'react-icons/fa6';
 export const links = [
   { name: 'About', href: '#about' },
   { name: 'Features', href: '#features' },
-  { name: 'FAQs', href: '#faqs' },
-  { name: 'Contact', href: '#faqs' },
+  { name: 'FAQs', href: '#footer' },
+  { name: 'Contact', href: '#footer' },
 ];
 
 export const socials = [
