@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import React, { JSX } from 'react';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import Navbar from '@/components/Navbar';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -25,7 +26,8 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.className} antialiased [scrollbar-gutter:stable]`}
     >
-      <body>{children}</body>
+      <Navbar/>
+      <body className='boundary'>{children}</body>
     </html>
   );
 }

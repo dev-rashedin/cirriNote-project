@@ -12,6 +12,20 @@
   --font-mono: var(--font-geist-mono);
 }
 
+
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+  .boundary {
+    @apply max-w-7xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20;
+  }
+
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
