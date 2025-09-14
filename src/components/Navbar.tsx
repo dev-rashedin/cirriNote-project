@@ -58,11 +58,11 @@ const Navbar = () => {
           <Logo />
         </div>
         <NavLinks />
-        <button className='w-30 rounded-full flex items-center relative p-[2px]  bg-white text-black text-sm group cursor-pointer transition-transform duration-300 ease-in-out'>
-          <span className=' bg-black w-9 h-9 p-3 rounded-full flex-center transition-all duration-300 ease-in-out group-hover:w-full relative'>
-            <FiShoppingCart className='absolute top-2.8 left-2.5 text-green-600 font-bold text-[13px] group-hover:scale-120 transition-all duration-300 ease-in-out' />
+        <button className='w-28 lg:w-30 rounded-full flex items-center relative p-[2px]  bg-white text-black text-sm group cursor-pointer transition-transform duration-300 ease-in-out'>
+          <span className=' bg-black w-7 h-7 lg:w-9 lg:h-9 p-3 rounded-full flex-center transition-all duration-300 ease-in-out group-hover:w-full relative'>
+            <FiShoppingCart className='absolute top-2 left-1.5 lg:top-2.8 lg:left-2.5 text-green-500 font-bold text-xs lg:text-[13px] group-hover:scale-120 transition-all duration-300 ease-in-out' />
           </span>
-          <span className='absolute right-4 top-2.5 group-hover:text-white'>
+          <span className='absolute right-3 lg:right-4 lg:top-2.5 group-hover:text-white'>
             Try Now
           </span>
         </button>
