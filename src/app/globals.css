@@ -23,7 +23,10 @@
     @apply max-w-7xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20;
   }
   .text-brand {
-    color: #166E4E
+    @apply text-[#00BB77]
+  }
+  .hover-text {
+    @apply hover:text-[#00BB77]
   }
   .bg-brand {
     @apply bg-[#166E4E];
@@ -36,12 +39,7 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+
 
 body {
   background: var(--background);

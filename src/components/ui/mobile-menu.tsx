@@ -37,7 +37,7 @@ const MobileMenu = () => {
       >
         <ul className='flex flex-col justify-between items-start pl-8 gap-8 pb-8 text-sm md:hidden'>
           {links.map((link) => (
-            <Link href={link.href} className='hover:text-green-600'>
+            <Link href={link.href} className='hover-text'>
               {link.name}
             </Link>
           ))}

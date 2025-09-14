@@ -2,7 +2,7 @@
 
 const Features = () => {
   return (
-    <section id='features' className='min-h-screen flex-center z-10'>
+    <section id='features' className='min-h-screen flex-center z-10 bg-black'>
       Features
     </section>
   );
