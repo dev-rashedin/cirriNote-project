@@ -8,9 +8,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "gsap": "^3.13.0",
     "next": "15.5.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-fast-marquee": "^1.6.5",
     "react-icons": "^5.5.0"
   },
   "devDependencies": {

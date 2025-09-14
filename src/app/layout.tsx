@@ -27,7 +27,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.className} antialiased scroll-smooth`}
     >
-      <body className='boundary'>
+      <body >
       <Navbar />
         <main>{children}</main>
       <Footer />
