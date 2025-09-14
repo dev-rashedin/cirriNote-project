@@ -6,7 +6,9 @@ const NavLinks = () => {
     <ul className='hidden md:flex justify-between items-center gap-6 lg:gap-9 xl:gap-12 text-sm'>
       {links.map((link) => (
         <li key={link.name}>
-          <Link href={link.href}>{link.name}</Link>
+          <Link href={link.href} className='hover:text-green-600'>
+            {link.name}
+          </Link>
         </li>
       ))}
     </ul>

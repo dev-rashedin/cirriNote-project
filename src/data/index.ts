@@ -7,26 +7,26 @@ export const links = [
   { name: 'About', href: '#about' },
   { name: 'Features', href: '#features' },
   { name: 'FAQs', href: '#faqs' },
-  { name: 'Contact', href: '' },
+  { name: 'Contact', href: '#faqs' },
 ];
 
 export const socials = [
   {
     name: 'Linkedin',
     icon: RiLinkedinFill,
-    className: 'text-2xl',
+    className: 'text-4xl md:text-2xl',
     href: 'https://www.linkedin.com/company/creowis',
   },
   {
     name: 'Instagram',
     icon: FaInstagram,
-    className: 'text-xl',
+    className: 'text-3xl md:text-xl',
     href: 'https://www.instagram.com/creowis/',
   },
   {
     name: 'Twitter',
     icon: FaXTwitter,
-    className: 'text-xl',
+    className: 'text-3xl md:text-xl',
     href: 'https://x.com/creowistech',
   },
 ];

@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
@@ -12,7 +12,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-
 @layer utilities {
   .flex-center {
     @apply flex items-center justify-center;
@@ -23,7 +22,12 @@
   .boundary {
     @apply max-w-7xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20;
   }
-
+  .text-brand {
+    color: #166E4E
+  }
+  .bg-primary {
+    @apply bg-[#166E4E];
+  }
 }
 
 @media (prefers-color-scheme: dark) {
