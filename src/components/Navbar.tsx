@@ -1,19 +1,18 @@
-import Image from "next/image"
 import NavLinks from "./ui/links"
+import Logo from "./ui/logo"
 
 
 const Navbar = () => {
   return (
-    <nav>
+    <nav className="boundary h-20 flex-between sticky top-0">
       {/* logo */}
-      <section className="flex-center gap-4">
-        <Image src="/favicon.ico" width={20} height={20} alt="logo" />
-        <Image src="/Wordmark.png" width={100} height={100} alt="logo" />
-      </section>
+     <Logo/>
 
       {/* links */}
 
-      <NavLinks/>
+      <NavLinks />
+      
+      <button>Try Now</button>
     </nav>
   )
 }

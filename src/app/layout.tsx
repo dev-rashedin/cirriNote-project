@@ -3,6 +3,7 @@ import React, { JSX } from 'react';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -27,7 +28,10 @@ export default function RootLayout({
       className={`${inter.className} antialiased [scrollbar-gutter:stable]`}
     >
       <Navbar/>
-      <body className='boundary'>{children}</body>
+      <body className='boundary'>
+        {children}
+      </body>
+      <Footer />
     </html>
   );
 }
