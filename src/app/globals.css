@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #d41a1a;
+  --background: #000000;
   --foreground: #ffffff;
 }
 
@@ -25,8 +25,14 @@
   .text-brand {
     color: #166E4E
   }
-  .bg-primary {
+  .bg-brand {
     @apply bg-[#166E4E];
+  }
+  .bg-primary {
+   @apply bg-[#1C1C1C];
+  }
+  .bg-secondary {
+    @apply bg-[#0A0A0A];
   }
 }
 
