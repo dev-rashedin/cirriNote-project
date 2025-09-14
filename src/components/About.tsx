@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -6,27 +6,46 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+  const aboutRef = useRef<HTMLDivElement>(null);
 
-    const aboutRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!aboutRef.current) return;
 
-    useEffect(() => {
-      if (!aboutRef.current) return;
+    // use gsap.matchMedia (replaces ScrollTrigger.matchMedia)
+    const mm = gsap.matchMedia();
 
-      gsap.to(aboutRef.current, {
-        scrollTrigger: {
-          trigger: aboutRef.current,
-          start: 'top 28px', // start pinning when top of about hits 28px from top
-          end: () => `bottom top`, // unpin when bottom of section hits top of viewport
-          pin: true,
-          pinSpacing: false, // if true, keeps space, false lets next sections scroll over
-        },
-      });
-    }, []);
+    mm.add(
+      {
+        // desktop only (min-width: 768px, Tailwind's md:)
+        isDesktop: '(min-width: 768px)',
+        // mobile only
+        isMobile: '(max-width: 767px)',
+      },
+      (context) => {
+        let { conditions } = context;
+
+        if (conditions?.isDesktop) {
+          ScrollTrigger.create({
+            trigger: aboutRef.current,
+            start: 'top 0px', // offset for navbar
+            end: 'bottom top',
+            pin: true,
+            pinSpacing: false,
+          });
+        }
+
+        // if mobile → do nothing, just scroll naturally
+      }
+    );
+
+    return () => mm.revert(); // cleanup when component unmounts
+  }, []);
 
   return (
-    <section ref={aboutRef}
+    <section
+      ref={aboutRef}
       id='about'
-      className='relative min-h-[80vh] flex-center bg-white/10 md:sticky md:top-20 -z-10'
+      className='relative min-h-[80vh] flex-center bg-white/10 -z-10'
     >
       About
     </section>
