@@ -1,13 +1,13 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
-
-const Logo = () => {
+const Logo = ({ place = 'footer' }) => {
   return (
-    <Link href='#home' className='flex-center gap-1 cursor-pointer'>
+    <div className={`flex-center gap-1 ${place === 'nav' ? 'cursor-pointer' : ''}`}>
       <Image src='/favicon.ico' width={35} height={35} alt='logo' />
-      <Image src='/Wordmark.png' width={100} height={100} alt='logo' />
-    </Link>
+      <h3 className='text-2xl mt-1'>CirriNote</h3>
+    </div>
   );
-}
-export default Logo
+};
+
+export default Logo;
