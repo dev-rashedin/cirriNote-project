@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import heroImage from '../assets/hero-image.png';
+import vector from '../assets/Vector.png';
 import Image from 'next/image';
 
 const Hero = () => {
@@ -52,7 +53,10 @@ const Hero = () => {
     <section
       ref={heroRef}
       className='h-screen relative'
-      style={{ backgroundImage: "url('/Vector.png')", backgroundSize: 'cover' }}
+      style={{
+        backgroundImage: `url(${vector.src})`,
+        backgroundSize: 'cover',
+      }}
     >
       <Image
         ref={imageRef}
