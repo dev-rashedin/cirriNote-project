@@ -11,34 +11,29 @@ const About = () => {
   useEffect(() => {
     if (!aboutRef.current) return;
 
-    // use gsap.matchMedia (replaces ScrollTrigger.matchMedia)
     const mm = gsap.matchMedia();
 
     mm.add(
       {
-        // desktop only (min-width: 768px, Tailwind's md:)
-        isDesktop: '(min-width: 768px)',
-        // mobile only
-        isMobile: '(max-width: 767px)',
+        isTabOrDesktop: '(min-width: 451px)',
+        isMobile: '(max-width: 450px)',
       },
       (context) => {
         let { conditions } = context;
 
-        if (conditions?.isDesktop) {
+        if (conditions?.isTabOrDesktop) {
           ScrollTrigger.create({
             trigger: aboutRef.current,
-            start: 'top 0px', // offset for navbar
+            start: 'top 0px',
             end: 'bottom top',
             pin: true,
             pinSpacing: false,
           });
         }
-
-        // if mobile → do nothing, just scroll naturally
       }
     );
 
-    return () => mm.revert(); // cleanup when component unmounts
+    return () => mm.revert();
   }, []);
 
   return (
