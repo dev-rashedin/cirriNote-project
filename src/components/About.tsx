@@ -92,8 +92,8 @@ const About = () => {
       <h1 ref={textTopRef} className='text-5xl text-center leading-14'>
         An extraordinary note
         <br />
-        for
-        <span className='text-brand pl-3'>makers, creators..</span>
+        for 
+        <span>makers, creators..</span>
       </h1>
       <Image
         ref={imageRef}
@@ -106,8 +106,8 @@ const About = () => {
       <p ref={textBottomRef} className='text-center text-[17px] max-w-md lg:max-w-lg opacity-90'>
         Creators around the planet use this app
         <br />
-        for creating{' '}
-        <span className='text-brand'>magic</span>
+        for creating
+        <span>magic</span>
       </p>
     </section>
   );

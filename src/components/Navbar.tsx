@@ -62,9 +62,9 @@ const Navbar = () => {
             <span className=' bg-black w-7 h-7 lg:w-9 lg:h-9 p-3 rounded-full flex-center transition-all duration-300 ease-in-out group-hover:w-full relative'>
               <FiShoppingCart className='absolute top-2 left-1.5 lg:top-3 lg:left-2.5 text-green-500 font-bold text-xs lg:text-[13px] group-hover:scale-120 transition-all duration-300 ease-in-out' />
             </span>
-            <span className='absolute right-3 lg:right-4 lg:top-2.5 group-hover:text-white'>
+            <p className='absolute right-3 lg:right-4 lg:top-2.5 group-hover:text-white'>
               Try Now
-            </span>
+            </p>
           </button>
           <MobileMenu />
         </div>

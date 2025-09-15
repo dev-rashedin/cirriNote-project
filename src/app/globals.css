@@ -3,6 +3,8 @@
 :root {
   --background: #000000;
   --foreground: #ffffff;
+
+  
 }
 
 @theme inline {
@@ -31,6 +33,9 @@
   .hover-text {
     @apply hover:text-[#00BB77]
   }
+  .hover-border {
+    @apply hover:border-2 border-[#00BB77] transition-all duration-100 ease-in
+  }
   .bg-brand {
     @apply bg-[#166E4E];
   }
@@ -47,4 +52,8 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  span {
+    color: #00BB77;
+    padding-left: 8px;;
+  }
 }
