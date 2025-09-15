@@ -1,4 +1,5 @@
-"use client"
+'use client';
+
 import { useEffect, useRef } from 'react';
 import { PiArrowUpRightBold } from 'react-icons/pi';
 import gsap from 'gsap';
@@ -10,24 +11,13 @@ const FeatureBox = () => {
   useEffect(() => {
     const parent = parentRef.current;
     const arrow = arrowRef.current;
+
     if (!parent || !arrow) return;
 
-    // Timeline for delayed border color
-    const borderTl = gsap.timeline({ paused: true });
-    borderTl.to(
-      parent,
-      {
-        borderTopColor: '#00cc81',
-        borderLeftColor: '#00cc81',
-        borderRightColor: '#009961', // dimmed color
-        duration: 0,
-      },
-      '+=0.8'
-    );
+    let tl = gsap.timeline({ paused: true });
 
-    // Arrow animation timeline
-    const arrowTl = gsap.timeline({ paused: true });
-    arrowTl.to(arrow, {
+    // arrow bounce
+    tl.to(arrow, {
       opacity: 1,
       top: '1rem',
       right: '1rem',
@@ -35,26 +25,26 @@ const FeatureBox = () => {
       ease: 'bounce.out',
     });
 
+    // border-top + border-right after delay
+    tl.to(
+      parent,
+      {
+        borderTopColor: '#00e691',
+        borderLeftColor: '#00cc81',
+        borderRightColor: '#009961', // dimmed color
+        duration: 0,
+      },
+      '+=0.3'
+    );
+
     const handleMouseEnter = () => {
-      borderTl.restart(); // delayed border effect
-      arrowTl.restart(); // smooth single bounce
+      // initial border: handled by Tailwind
+      tl.play();
     };
 
     const handleMouseLeave = () => {
-      // Reset arrow to original position and hide
-      gsap.to(arrow, {
-        opacity: 0,
-        top: '7rem', // original top-28 (7rem)
-        right: '7rem', // original right-28
-        duration: 0.3,
-        ease: 'power2.out',
-      });
-
-      // Reset border colors
-      borderTl.pause(0);
-      parent.style.borderRightColor = '';
-      parent.style.borderTopColor = '';
-      parent.style.borderLeftColor = '';
+      tl.pause(0); // reset to initial state
+      parent.style.borderRightColor = ''; // remove inline style so Tailwind works again
     };
 
     parent.addEventListener('mouseenter', handleMouseEnter);
@@ -75,7 +65,7 @@ const FeatureBox = () => {
         Feature <br /> Name
       </p>
 
-      <div ref={arrowRef} className='absolute top-12 right-12 opacity-0'>
+      <div ref={arrowRef} className='absolute top-28 right-28 opacity-0'>
         <PiArrowUpRightBold className='text-brand text-4xl lg:text-5xl xl:text-6xl' />
       </div>
     </div>
