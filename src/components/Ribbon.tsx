@@ -14,8 +14,8 @@ const Ribbon = () => {
   const repeatedTexts = Array(3).fill(ribbonTexts).flat();
 
   return (
-    <main className='w-full bg-brand pb-0.5'>
-      <Marquee direction='right' speed={30} gradient={false}>
+    <main className='w-full bg-brand py-1'>
+      <Marquee direction='left' speed={80} gradient={false}>
         {repeatedTexts.map((text, index) => (
           <span
             key={index}

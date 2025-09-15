@@ -14,41 +14,34 @@ const Hero = () => {
   const textLeftRef = useRef<HTMLHeadingElement>(null);
   const textRightRef = useRef<HTMLHeadingElement>(null);
 
+  useEffect(() => {
+    if (!heroRef.current) return;
 
+    // Initial state: invisible & offset
+    gsap.set([imageRef.current, textLeftRef.current, textRightRef.current], {
+      opacity: 0,
+    });
+    gsap.set(imageRef.current, { y: 50 });
+    gsap.set(textLeftRef.current, { x: 80 });
+    gsap.set(textRightRef.current, { x: -80 });
 
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: heroRef.current,
+        start: 'top center',
+        toggleActions: 'play none none none',
+      },
+      defaults: { duration: 1.1, ease: 'power3.out' },
+    });
 
-    useEffect(() => {
-      if (!heroRef.current) return;
+    tl.to(imageRef.current, { y: 0, opacity: 1 })
+      .to(textLeftRef.current, { x: 0, opacity: 1 }, '-=1')
+      .to(textRightRef.current, { x: 0, opacity: 1 }, '-=1');
 
-      // Initial state: invisible & offset
-      gsap.set([imageRef.current, textLeftRef.current, textRightRef.current], {
-        opacity: 0,
-      });
-      gsap.set(imageRef.current, { y: 50 });
-      gsap.set(textLeftRef.current, { x: 100 });
-      gsap.set(textRightRef.current, { x: -100 });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top center',
-          toggleActions: 'play none none none',
-        },
-        defaults: { duration: 1, ease: 'power3.out' },
-      });
-
-      tl.to(imageRef.current, { y: 0, opacity: 1 })
-        .to(textLeftRef.current, { x: 0, opacity: 1 }, '-=1')
-        .to(textRightRef.current, { x: 0, opacity: 1 }, '-=1');
-
-      return () => {
-        tl.kill();
-      }
-    }, []);
-
-
-
-
+    return () => {
+      tl.kill();
+    };
+  }, []);
 
   return (
     <section
@@ -58,7 +51,7 @@ const Hero = () => {
       {/* medium and large screen hero content with animation */}
       <div
         ref={heroRef}
-        className='relative inset-0 flex flex-col items-center justify-center md:h-[820px]'
+        className='relative inset-0 hidden md:flex flex-col items-center justify-center md:h-[820px]'
       >
         <Image
           ref={imageRef}
@@ -66,46 +59,46 @@ const Hero = () => {
           alt='hero'
           width={1000}
           height={400}
-          className='z-10 opacity-0'
+          className='z-10 opacity-0 pb-36 lg:pb-20 xl:pb-10'
         />
-        <div className='flex gap-4 text-6xl font-bold text-white z-20'>
+        <div className='flex gap-4 text-5xl lg:text-6xl z-20'>
           <h1
             ref={textLeftRef}
-            className='absolute top-75 left-1/5 transform -translate-y-1/3 opacity-0'
+            className='absolute top-45 left-12 lg:top-40 lg:left-18 xl:top-70 xl:left-1/4   transform -translate-y-1/3 opacity-0'
           >
             Note Taking
           </h1>
           <h1
             ref={textRightRef}
-            className='text-brand absolute top-98 right-85 transform -translate-y-1/3 opacity-0'
+            className='text-brand absolute top-75 right-16 xl:top-90  xl:right-120 transform -translate-y-1/3 opacity-0'
           >
             Redefined
           </h1>
+        </div>
+      </div>
+
+      {/* small screen hero content without animation */}
+      <div className='md:hidden relative w-full h-screen flex flex-col  justify-start overflow-hidden'>
+        <div className='pt-24 pl-12 text-5xl tracking-tight space-y-2 z-10'>
+          <h1>Note Taking</h1>
+          <h1 className='text-brand'>Redefined</h1>
+        </div>
+
+        <div className='absolute bottom-28 -left-20 w-[800px] h-[450px]'>
+          <Image
+            src={heroImage}
+            alt='hero'
+            fill
+            className='object-cover object-right-bottom'
+            priority
+          />
         </div>
       </div>
     </section>
   );
 };
 
+
 export default Hero;
 
-//       {/* small screen hero content without animation */}
-//       <div className='md:hidden relative w-full h-screen flex flex-col  justify-start overflow-hidden'>
-//         <div className='pt-24 pl-12 text-5xl tracking-tight space-y-2 z-10'>
-//           <h1>Note Taking</h1>
-//           <h1 className='text-brand'>Redefined</h1>
-//         </div>
-
-//         <div className='absolute bottom-28 -left-20 w-[800px] h-[450px]'>
-//           <Image
-//             src={heroImage}
-//             alt='hero'
-//             fill
-//             className='object-cover object-right-bottom'
-//             priority
-//           />
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
+    

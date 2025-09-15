@@ -48,11 +48,11 @@ const Navbar = () => {
 
   return (
     <main className='sticky -top-6 z-50 h-26 bg-black/50 shadow-3xl'>
-      <div ref={ribbonRef} className='absolute top-0 left-0 right-0 z-20'>
+      <div ref={ribbonRef} className='hidden md:block absolute top-0 left-0 right-0 z-20'>
         <Ribbon />
       </div>
 
-      <nav className='boundary h-8 pt-16 flex-between z-30 '>
+      <nav className='boundary h-8 pt-12 md:pt-16 flex-between z-30 '>
         <div onClick={handleLogoClick} className='cursor-pointer'>
           <Logo />
         </div>
