@@ -17,12 +17,12 @@ const Ribbon = () => {
     <main className='w-full bg-brand py-1'>
       <Marquee direction='left' speed={80} gradient={false}>
         {repeatedTexts.map((text, index) => (
-          <span
+          <p
             key={index}
             className='text-white text-xs px-4 tracking-wide'
           >
             {text}
-          </span>
+          </p>
         ))}
       </Marquee>
     </main>

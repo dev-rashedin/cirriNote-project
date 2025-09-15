@@ -1,6 +1,3 @@
-import { ImArrowUpRight2 } from 'react-icons/im';
-import { FiArrowUpRight } from 'react-icons/fi';
-import { PiArrowUpRightBold } from 'react-icons/pi';
 import FeatureBox from './ui/feature-box';
 
 // const FeatureBox = () => (

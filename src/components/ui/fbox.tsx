@@ -30,11 +30,11 @@ const FeatureBox = () => {
       parent,
       {
         borderTopColor: '#00e691',
-        borderLeftColor: '#00cc81',
+        borderLeftColor: '#00e691',
         borderRightColor: '#009961', // dimmed color
         duration: 0,
       },
-      '+=0.3'
+      '+=0.8'
     );
 
     const handleMouseEnter = () => {
