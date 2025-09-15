@@ -1,19 +1,23 @@
 import { ImArrowUpRight2 } from 'react-icons/im';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { PiArrowUpRightBold } from 'react-icons/pi';
+import FeatureBox from './ui/feature-box';
 
-const FeatureBox = () => (
-      <div className='relative bg-primary w-50 h-42 lg:w-70 lg:h-55 xl:w-90 xl:h-75  rounded-2xl p-6 cursor-pointer overflow-hidden group hover-border'>
-      <p className='absolute bottom-4 text-lg lg:text-xl xl:text-2xl font-medium'>
-        Feature <br /> Name
-      </p>
-      <FiArrowUpRight className='feature-arrow absolute top-4 right-4 text-brand w-6 h-6' />
-    </div>
-)
+// const FeatureBox = () => (
+//   <div className='relative bg-primary w-50 h-42 lg:w-70 lg:h-55 xl:w-90 xl:h-75  rounded-2xl p-6 cursor-pointer overflow-hidden group hover-border'>
+//     <p className='absolute bottom-4 text-lg lg:text-xl xl:text-2xl font-medium'>
+//       Feature <br /> Name
+//     </p>
+//     <PiArrowUpRightBold
+//       className='absolute top-28 right-28 text-brand text-4xl lg:text-5xl xl:text-6xl 
+//              opacity-0 group-hover:opacity-100 
+//              group-hover:top-4 group-hover:right-4 
+//              transition-all duration-300 ease-in-out'
+//     />
+//   </div>
+// );
 
 export default function Features() {
- 
-
   return (
     <section
       id='features'

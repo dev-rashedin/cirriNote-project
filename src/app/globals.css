@@ -34,7 +34,7 @@
     @apply hover:text-[#00BB77]
   }
   .hover-border {
-    @apply hover:border-2 border-[#00BB77] transition-all duration-100 ease-in
+    @apply hover:border hover:border-l-2 hover:border-b-2  border-[#00BB77] transition-all duration-100 ease-in
   }
   .bg-brand {
     @apply bg-[#166E4E];
