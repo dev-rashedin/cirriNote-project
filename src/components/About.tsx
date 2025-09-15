@@ -42,17 +42,16 @@ const About = () => {
     return () => mm.revert();
   }, []);
 
+  useEffect(() => {
+    if (!aboutRef.current) return;
 
-   useEffect(() => {
-     if (!aboutRef.current) return;
 
-     // Initial state: invisible & offset
-     gsap.set([imageRef.current, textTopRef.current, textBottomRef.current], {
-       opacity: 0,
-     });
-     gsap.set(imageRef.current, { y: 50 });
-     gsap.set(textTopRef.current, { x: 80 });
-     gsap.set(textBottomRef.current, { x: -80 });
+    gsap.set([imageRef.current, textTopRef.current, textBottomRef.current], {
+      opacity: 0,
+    });
+    gsap.set(imageRef.current, { y: -800 });
+    gsap.set(textTopRef.current, { x: 80 });
+    gsap.set(textBottomRef.current, { x: -80 });
 
      const tl = gsap.timeline({
        scrollTrigger: {
@@ -60,45 +59,56 @@ const About = () => {
          start: 'top center',
          toggleActions: 'play none none none',
        },
-       defaults: { duration: 1.1, ease: 'power3.out' },
+       defaults: { duration: 0.5, delay: 0.1 },
      });
-
-     tl.to(imageRef.current, { y: 0, opacity: 1 })
-       .to(textTopRef.current, { x: 0, opacity: 1 }, '-=1')
-       .to(textBottomRef.current, { x: 0, opacity: 1 }, '-=1');
-
-     return () => {
-       tl.kill();
-     };
-   }, []);
-
+    
+    tl.to(imageRef.current, {
+      y: 0,
+      opacity: 1,
+      duration: 1.1,
+      delay: 0.3,
+      ease: 'bounce.out', 
+    })
+      .to(
+        textTopRef.current,
+        { x: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
+        '+=0.3'
+      )
+      .to(
+        textBottomRef.current,
+        { x: 0, opacity: 1, duration: 0.8, delay: 0.5, ease: 'power3.out' },
+        '-=0.6'
+      );
+    
+   
+  }, []);
 
   return (
     <section
       ref={aboutRef}
       id='about'
-      className=' min-h-[80vh] flex-col-center bg-white/10 -z-10'
+      className='min-h-screen flex-col-center gap-16 bg-white/10 -z-10'
     >
-      <div className='flex gap-4 z-20'>
-        <h1 ref={textTopRef} className='text-3xl'>
-          An extraordinary note for{' '}
-          <span className='text-brand'>makers, creators..</span>
-        </h1>
-        <Image
-          ref={imageRef}
-          src={paperIcon}
-          alt='hero'
-          width={100}
-          height={40}
-          className='z-10 opacity-0'
-        />
-        <p
-          ref={textBottomRef}
-        >
-          Creators around the planet use this app for creating{' '}
-          <span className='text-brand'>magic</span>
-        </p>
-      </div>
+      <h1 ref={textTopRef} className='text-5xl text-center leading-14'>
+        An extraordinary note
+        <br />
+        for
+        <span className='text-brand pl-3'>makers, creators..</span>
+      </h1>
+      <Image
+        ref={imageRef}
+        src={paperIcon}
+        alt='paper icon'
+        width={150}
+        height={150}
+        className='z-10'
+      />
+      <p ref={textBottomRef} className='text-center text-[17px] max-w-md lg:max-w-lg opacity-90'>
+        Creators around the planet use this app
+        <br />
+        for creating{' '}
+        <span className='text-brand'>magic</span>
+      </p>
     </section>
   );
 };
