@@ -1,9 +1,12 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import heroImage from '../assets/hero-image.png';
 import vector from '../assets/Vector.png';
 import Image from 'next/image';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -11,91 +14,73 @@ const Hero = () => {
   const textLeftRef = useRef<HTMLHeadingElement>(null);
   const textRightRef = useRef<HTMLHeadingElement>(null);
 
-  useEffect(() => {
-    if (!heroRef.current) return;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: 'top center', // animation starts when hero top hits middle of viewport
-        toggleActions: 'play none none none', // play once
-      },
-      defaults: { duration: 1, ease: 'power3.out' },
-    });
 
-    tl.from(imageRef.current, {
-      y: 80, // pop up from below
-      opacity: 0,
-    })
-      .from(
-        textLeftRef.current,
-        {
-          x: 50, // shift left
-          opacity: 0,
+
+    useEffect(() => {
+      if (!heroRef.current) return;
+
+      // Initial state: invisible & offset
+      gsap.set([imageRef.current, textLeftRef.current, textRightRef.current], {
+        opacity: 0,
+      });
+      gsap.set(imageRef.current, { y: 50 });
+      gsap.set(textLeftRef.current, { x: 100 });
+      gsap.set(textRightRef.current, { x: -100 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top center',
+          toggleActions: 'play none none none',
         },
-        '-=0.9' // overlap with image animation
-      )
-      .from(
-        textRightRef.current,
-        {
-          x: -50, // shift right
-          opacity: 0,
-        },
-        '-=1.1' // overlap more smoothly
-      );
+        defaults: { duration: 1, ease: 'power3.out' },
+      });
 
-    return () => {
-      tl.kill();
-    };
-  }, []);
+      tl.to(imageRef.current, { y: 0, opacity: 1 })
+        .to(textLeftRef.current, { x: 0, opacity: 1 }, '-=1')
+        .to(textRightRef.current, { x: 0, opacity: 1 }, '-=1');
+
+      return () => {
+        tl.kill();
+      }
+    }, []);
+
+
+
+
 
   return (
     <section
-      className='h-screen '
-      style={{
-        backgroundImage: `url(${vector.src})`,
-        backgroundSize: 'cover',
-      }}
+      className='h-screen'
+      style={{ backgroundImage: `url(${vector.src})`, backgroundSize: 'cover' }}
     >
-      <div ref={heroRef} className='hidden md:block relative'>
+      {/* medium and large screen hero content with animation */}
+      <div
+        ref={heroRef}
+        className='relative inset-0 flex flex-col items-center justify-center md:h-[820px]'
+      >
         <Image
           ref={imageRef}
           src={heroImage}
           alt='hero'
-          width={1260}
-          height={360}
-          className='absolute  left-1/2 transform -translate-x-1/2'
+          width={1000}
+          height={400}
+          className='z-10 opacity-0'
         />
-        <div className=' flex gap-4 text-6xl'>
+        <div className='flex gap-4 text-6xl font-bold text-white z-20'>
           <h1
             ref={textLeftRef}
-            className='absolute top-63 left-1/3 transform -translate-x-40 -translate-y-1/2'
+            className='absolute top-75 left-1/5 transform -translate-y-1/3 opacity-0'
           >
             Note Taking
           </h1>
           <h1
             ref={textRightRef}
-            className='absolute top-90 right-50 transform -translate-x-1/2 -translate-y-1/2 text-brand'
+            className='text-brand absolute top-98 right-85 transform -translate-y-1/3 opacity-0'
           >
             Redefined
           </h1>
-        </div>
-      </div>
-
-      <div className='md:hidden relative w-full h-screen flex flex-col  justify-start overflow-hidden'>
-        <div className='pt-24 pl-12 text-5xl tracking-tight space-y-2 z-10'>
-          <h1>Note Taking</h1>
-          <h1 className='text-brand'>Redefined</h1>
-        </div>
-
-        <div className='absolute bottom-28 -left-20 w-[800px] h-[450px]'>
-          <Image
-            src={heroImage}
-            alt='hero'
-            fill
-            className='object-cover object-right-bottom'
-            priority
-          />
         </div>
       </div>
     </section>
@@ -104,7 +89,23 @@ const Hero = () => {
 
 export default Hero;
 
-// const Hero = () => {
-//   return <section id='hero' className='min-h-screen flex-center' style={{backgroundImage: "url('/Vector.png')", backgroundSize: "cover"}}>Hero</section>;
-// }
-// export default Hero
+//       {/* small screen hero content without animation */}
+//       <div className='md:hidden relative w-full h-screen flex flex-col  justify-start overflow-hidden'>
+//         <div className='pt-24 pl-12 text-5xl tracking-tight space-y-2 z-10'>
+//           <h1>Note Taking</h1>
+//           <h1 className='text-brand'>Redefined</h1>
+//         </div>
+
+//         <div className='absolute bottom-28 -left-20 w-[800px] h-[450px]'>
+//           <Image
+//             src={heroImage}
+//             alt='hero'
+//             fill
+//             className='object-cover object-right-bottom'
+//             priority
+//           />
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
