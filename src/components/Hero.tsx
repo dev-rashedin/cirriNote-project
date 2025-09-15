@@ -59,18 +59,18 @@ const Hero = () => {
           alt='hero'
           width={1000}
           height={400}
-          className='z-10 opacity-0 pb-36 lg:pb-20 xl:pb-10'
+          className='z-10 opacity-0'
         />
         <div className='flex gap-4 text-5xl lg:text-6xl z-20'>
           <h1
             ref={textLeftRef}
-            className='absolute top-45 left-12 lg:top-40 lg:left-18 xl:top-70 xl:left-1/4   transform -translate-y-1/3 opacity-0'
+            className='absolute top-63 left-12 lg:top-48 lg:left-18 xl:top-70 xl:left-1/4   transform -translate-y-1/3 opacity-0'
           >
             Note Taking
           </h1>
           <h1
             ref={textRightRef}
-            className='text-brand absolute top-75 right-16 xl:top-90  xl:right-120 transform -translate-y-1/3 opacity-0'
+            className='text-brand absolute top-95 right-12 xl:top-90  xl:right-120 transform -translate-y-1/3 opacity-0'
           >
             Redefined
           </h1>
