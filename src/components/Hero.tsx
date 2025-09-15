@@ -14,14 +14,14 @@ const Hero = () => {
   useEffect(() => {
     if (!heroRef.current) return;
 
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: 'top center', // animation starts when hero top hits middle of viewport
-            toggleActions: 'play none none none', // play once
-          },
-          defaults: { duration: 1, ease: 'power3.out' },
-        });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: heroRef.current,
+        start: 'top center', // animation starts when hero top hits middle of viewport
+        toggleActions: 'play none none none', // play once
+      },
+      defaults: { duration: 1, ease: 'power3.out' },
+    });
 
     tl.from(imageRef.current, {
       y: 80, // pop up from below
@@ -51,34 +51,52 @@ const Hero = () => {
 
   return (
     <section
-      ref={heroRef}
-      className='h-screen relative'
+      className='h-screen '
       style={{
         backgroundImage: `url(${vector.src})`,
         backgroundSize: 'cover',
       }}
     >
-      <Image
-        ref={imageRef}
-        src={heroImage}
-        alt='hero'
-        width={1260}
-        height={360}
-        className='absolute  left-1/2 transform -translate-x-1/2'
-      />
-      <div className=' flex gap-4 text-6xl'>
-        <h1
-          ref={textLeftRef}
-          className='absolute top-63 left-1/3 transform -translate-x-40 -translate-y-1/2'
-        >
-          Note Taking
-        </h1>
-        <h1
-          ref={textRightRef}
-          className='absolute top-90 right-50 transform -translate-x-1/2 -translate-y-1/2 text-brand'
-        >
-          Redefined
-        </h1>
+      <div ref={heroRef} className='hidden md:block relative'>
+        <Image
+          ref={imageRef}
+          src={heroImage}
+          alt='hero'
+          width={1260}
+          height={360}
+          className='absolute  left-1/2 transform -translate-x-1/2'
+        />
+        <div className=' flex gap-4 text-6xl'>
+          <h1
+            ref={textLeftRef}
+            className='absolute top-63 left-1/3 transform -translate-x-40 -translate-y-1/2'
+          >
+            Note Taking
+          </h1>
+          <h1
+            ref={textRightRef}
+            className='absolute top-90 right-50 transform -translate-x-1/2 -translate-y-1/2 text-brand'
+          >
+            Redefined
+          </h1>
+        </div>
+      </div>
+
+      <div className='md:hidden relative w-full h-screen flex flex-col  justify-start overflow-hidden'>
+        <div className='pt-24 pl-12 text-5xl tracking-tight space-y-2 z-10'>
+          <h1>Note Taking</h1>
+          <h1 className='text-brand'>Redefined</h1>
+        </div>
+
+        <div className='absolute bottom-28 -left-20 w-[800px] h-[450px]'>
+          <Image
+            src={heroImage}
+            alt='hero'
+            fill
+            className='object-cover object-right-bottom'
+            priority
+          />
+        </div>
       </div>
     </section>
   );
