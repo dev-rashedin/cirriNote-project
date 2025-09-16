@@ -89,6 +89,7 @@ const Hero = () => {
             src={heroImage}
             alt='hero'
             fill
+            sizes='(max-width: 768px) 100vw, 800px'
             className='object-cover object-right-bottom'
             priority
           />

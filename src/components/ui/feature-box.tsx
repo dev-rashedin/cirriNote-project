@@ -14,43 +14,38 @@ const FeatureBox = () => {
     
     if (!parent || !arrow) return;
 
-    // Timeline for delayed border color
     const borderTl = gsap.timeline({ paused: true });
     borderTl.to(
       parent,
       {
         borderTopColor: '#00e691',
         borderLeftColor: '#00e691',
-        borderRightColor: '#009961', // dimmed color
+        borderRightColor: '#009961',
         duration: 0,
       },
       '+=0.8'
     );
 
     const handleMouseEnter = () => {
-      borderTl.restart(); // delayed border effect
+      borderTl.restart(); 
       gsap.to(arrow, {
         opacity: 1,
         top: '1rem',
         right: '1rem',
         duration: 0.6,
         ease: 'elastic.out(1, 0.7)',
-        overwrite: 'auto', // cancels any running tween
-      }); // smooth single bounce
+        overwrite: 'auto',
+      });
     };
 
   const handleMouseLeave = () => {
-    // Animate arrow back to original position and hide
-    //  gsap.killTweensOf(arrow);
-
-     // Animate back quickly
      gsap.to(arrow, {
        opacity: 0,
-       top: '5rem', // original top-28
-       right: '5rem', // original right-28
-       duration: 0.2, // faster return
+       top: '5rem', 
+       right: '5rem', 
+       duration: 0.2, 
        ease: 'power2.out',
-       overwrite: 'auto', // ensures it interrupts the forward animation
+       overwrite: 'auto',
      });
 
     // Reset border colors
