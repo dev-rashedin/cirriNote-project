@@ -7,6 +7,9 @@ export default function Features() {
       className=' min-h-screen z-10 bg-black py-40 px-6 md:px-12 overflow-x-hidden'
     >
       <div className='boundary'>
+        <div className='bg-brand-secondary w-fit px-3 py-1 rounded-full text-black mb-6 text-sm'>
+          Whats the best
+        </div>
         <h2 className='h1 mb-4'>Key Features</h2>
         <p className='text-white/50 text-lg max-w-sm mb-12'>
           We&apos;re proud to announce the features that empower creatives every

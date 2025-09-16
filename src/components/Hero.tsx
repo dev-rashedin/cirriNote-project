@@ -79,7 +79,7 @@ const Hero = () => {
 
       {/* small screen hero content without animation */}
       <div className='md:hidden relative w-full h-screen flex flex-col  justify-start overflow-hidden'>
-        <div className='pt-24 pl-12 text-5xl tracking-tight space-y-2 z-10'>
+        <div className='pt-24 pl-16 text-5xl tracking-tight space-y-2 z-10'>
           <h1>Note Taking</h1>
           <h1 className='text-brand'>Redefined</h1>
         </div>
