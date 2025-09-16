@@ -45,32 +45,32 @@ const Hero = () => {
 
   return (
     <section
-      className='h-screen'
+      className='h-[calc(100vh-80px)]'
       style={{ backgroundImage: `url(${vector.src})`, backgroundSize: 'cover' }}
     >
       {/* medium and large screen hero content with animation */}
       <div
         ref={heroRef}
-        className='relative inset-0 hidden md:flex flex-col items-center justify-center md:h-[820px]'
+        className='relative max-w-6xl mx-auto h-full inset-0 hidden md:flex flex-col items-center justify-center'
       >
         <Image
           ref={imageRef}
           src={heroImage}
           alt='hero'
-          width={1200}
+          width={1000}
           height={400}
-          className='z-10 opacity-0'
+          className=' opacity-0'
         />
-        <div className='flex gap-4 h1 z-20'>
+        <div className='flex-center gap-4 h1'>
           <h1
             ref={textLeftRef}
-            className='absolute top-65 left-12 lg:top-52 lg:left-20 xl:top-65 xl:left-100   transform -translate-y-1/3 opacity-0'
+            className='absolute top-60 left-10 lg:top-65 lg:left-10 xl:top-1/3 xl:left-0   transform -translate-y-1/3 opacity-0'
           >
             Note Taking
           </h1>
           <h1
             ref={textRightRef}
-            className='text-brand absolute top-95 right-12 lg:right-20 xl:top-98  xl:right-105 transform -translate-y-1/3 opacity-0'
+            className='text-brand absolute top-95 right-12 lg:right-20 xl:top-95  xl:right-15 transform -translate-y-1/3 opacity-0'
           >
             Redefined
           </h1>
@@ -79,7 +79,7 @@ const Hero = () => {
 
       {/* small screen hero content without animation */}
       <div className='md:hidden relative w-full h-screen flex flex-col  justify-start overflow-hidden'>
-        <div className='pt-24 pl-16 text-5xl tracking-tight space-y-2 z-10'>
+        <div className='pt-24 pl-16 text-5xl tracking-tight space-y-2'>
           <h1>Note Taking</h1>
           <h1 className='text-brand'>Redefined</h1>
         </div>

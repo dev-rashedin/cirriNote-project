@@ -6,7 +6,7 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import Ribbon from './Ribbon';
 import NavLinks from './ui/links';
 import Logo from './ui/logo';
-import { FiShoppingCart } from "react-icons/fi";
+import { FiShoppingCart } from 'react-icons/fi';
 import MobileMenu from './ui/mobile-menu';
 
 gsap.registerPlugin(ScrollToPlugin);
@@ -14,6 +14,7 @@ gsap.registerPlugin(ScrollToPlugin);
 const Navbar = () => {
   const ribbonRef = useRef<HTMLDivElement>(null);
   const [hasScrolled, setHasScrolled] = useState(false);
+
 
   useEffect(() => {
     const ribbonEl = ribbonRef.current;
@@ -23,7 +24,7 @@ const Navbar = () => {
 
       if (!ribbonEl) return;
 
-      if (scrollY > 0) {
+      if (scrollY > 0) {      
         setHasScrolled(true);
         gsap.to(ribbonEl, { y: -50, duration: 0.4, ease: 'power3.out' });
       } else if (scrollY === 0 && hasScrolled) {
@@ -33,7 +34,6 @@ const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll);
 
-    
     return () => window.removeEventListener('scroll', handleScroll);
   }, [hasScrolled]);
 
@@ -49,12 +49,19 @@ const Navbar = () => {
   };
 
   return (
-    <main className='sticky -top-9 z-50 h-28 bg-black/50 shadow-3xl'>
-      <div ref={ribbonRef} className='hidden md:block absolute top-0 left-0 right-0 z-20'>
+    <main
+      className={`sticky -top-9 h-28 z-30 bg-black shadow-3xl ${
+        hasScrolled ? '-top-9' : 'top-0'
+      }`}
+    >
+      <div
+        ref={ribbonRef}
+        className='hidden md:block absolute top-0 left-0 right-0 z-20'
+      >
         <Ribbon />
       </div>
 
-      <nav className='boundary h-1 pt-12 md:pt-18 flex-between z-30 '>
+      <nav className='boundary bg-black h-1 pt-12 md:pt-18 flex-between z-50 '>
         <div onClick={handleLogoClick} className='cursor-pointer'>
           <Logo />
         </div>
