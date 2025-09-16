@@ -39,6 +39,9 @@
   .bg-brand {
     @apply bg-[#166E4E];
   }
+  .bg-brand-secondary {
+    @apply bg-[#00BB77];
+  }
   .bg-primary {
    @apply bg-[#1C1C1C];
   }

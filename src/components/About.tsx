@@ -4,7 +4,6 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import paperIcon from '../assets/paper-icon.png';
-import vector from '../assets/Vector.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -84,9 +83,9 @@ const About = () => {
   }, []);
 
   return (
-    <section
-      ref={aboutRef}
-      id='about'
+    <main  id='about'>
+       <section
+      ref={aboutRef}   
       className='min-h-screen flex-col-center gap-16 bg-white/10 -z-10'
     >
       <h1 ref={textTopRef} className='text-5xl text-center leading-14'>
@@ -110,6 +109,7 @@ const About = () => {
         <span>magic</span>
       </p>
     </section>
+   </main>
   );
 };
 export default About;
