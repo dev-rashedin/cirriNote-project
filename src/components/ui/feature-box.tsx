@@ -1,14 +1,12 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { FiArrowUpRight } from 'react-icons/fi';
 import arrowIcon from '../../assets/arrow.png';
 import Image from 'next/image';
 
 const FeatureBox = () => {
   const parentRef = useRef<HTMLDivElement | null>(null);
   const arrowRef = useRef<HTMLDivElement | null>(null);
-  const textRef = useRef<HTMLParagraphElement | null>(null);
 
   useEffect(() => {
     const parent = parentRef.current;
@@ -28,16 +26,6 @@ const FeatureBox = () => {
       },
       '+=0.8'
     );
-
-    // Arrow animation timeline
-    // const arrowTl = gsap.timeline({ paused: true });
-    // arrowTl.to(arrow, {
-    //   opacity: 1,
-    //   top: '1rem',
-    //   right: '1rem',
-    //   duration: 0.7,
-    //   ease: 'elastic.out(1, 0.7)',
-    // });
 
     const handleMouseEnter = () => {
       borderTl.restart(); // delayed border effect
@@ -84,15 +72,14 @@ const FeatureBox = () => {
   return (
     <div
       ref={parentRef}
-      className='relative bg-primary w-50 h-42 lg:w-70 lg:h-55 xl:w-90 xl:h-75 rounded-2xl p-6 cursor-pointer overflow-hidden group hover:border-[1.9px] border-[#00BB77] hover:bg-black'
+      className='relative bg-primary w-65 h-65 md:w-50  md:h-42 lg:w-70 lg:h-55 xl:w-90 xl:h-75 rounded-2xl p-6 cursor-pointer overflow-hidden group hover:border-[1.9px] border-[#00BB77] hover:bg-black'
     >
-      <p className='absolute left-8 bottom-4 lg:bottom-6 xl:bottom-8 text-lg lg:text-xl xl:text-2xl font-medium group-hover:translate-x-2 transition-transform duration-300 ease-in-out'>
+      <p className='absolute left-8 bottom-8 text-2xl font-medium group-hover:translate-x-2 transition-transform duration-300 ease-in-out'>
         Feature <br /> Name
       </p>
 
       <div ref={arrowRef} className='absolute top-40 right-40 opacity-0'>
         <Image src={arrowIcon} alt='arrow' width={75} height={75} />
-        {/* <FiArrowUpRight className='text-brand text-5xl lg:text-6xl xl:text-7xl' /> */}
       </div>
     </div>
   );

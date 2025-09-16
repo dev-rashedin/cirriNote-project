@@ -45,6 +45,10 @@
   .bg-secondary {
     @apply bg-[#0A0A0A];
   }
+
+  .h1{
+    @apply text-5xl lg:text-6xl xl:text-7xl
+  }
 }
 
 
@@ -56,4 +60,9 @@ body {
     color: #00BB77;
     padding-left: 8px;;
   }
+
+  .scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
 }

@@ -25,7 +25,7 @@ export default function RootLayout({
     <html
       lang='en'
       suppressHydrationWarning
-      className={`${inter.className} antialiased scroll-smooth`}
+      className={`${inter.className} antialiased scroll-smooth overflow-x-hidden`}
     >
       <body >
       <Navbar />

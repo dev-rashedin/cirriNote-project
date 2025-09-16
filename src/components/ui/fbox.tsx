@@ -66,7 +66,7 @@ const FeatureBox = () => {
       </p>
 
       <div ref={arrowRef} className='absolute top-28 right-28 opacity-0'>
-        <PiArrowUpRightBold className='text-brand text-4xl lg:text-5xl xl:text-6xl' />
+        <PiArrowUpRightBold className='text-brand h2' />
       </div>
     </div>
   );
