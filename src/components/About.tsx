@@ -4,7 +4,6 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import paperIcon from '../assets/paper-icon.png';
-import vector from '../assets/Vector.png';
 
 gsap.registerPlugin(ScrollTrigger);
 

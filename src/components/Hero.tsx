@@ -57,20 +57,20 @@ const Hero = () => {
           ref={imageRef}
           src={heroImage}
           alt='hero'
-          width={1000}
+          width={1200}
           height={400}
           className='z-10 opacity-0'
         />
-        <div className='flex gap-4 text-5xl lg:text-6xl z-20'>
+        <div className='flex gap-4 h1 z-20'>
           <h1
             ref={textLeftRef}
-            className='absolute top-63 left-12 lg:top-48 lg:left-18 xl:top-70 xl:left-1/4   transform -translate-y-1/3 opacity-0'
+            className='absolute top-65 left-12 lg:top-52 lg:left-20 xl:top-65 xl:left-100   transform -translate-y-1/3 opacity-0'
           >
             Note Taking
           </h1>
           <h1
             ref={textRightRef}
-            className='text-brand absolute top-95 right-12 xl:top-90  xl:right-120 transform -translate-y-1/3 opacity-0'
+            className='text-brand absolute top-95 right-12 lg:right-20 xl:top-98  xl:right-105 transform -translate-y-1/3 opacity-0'
           >
             Redefined
           </h1>

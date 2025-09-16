@@ -11,15 +11,15 @@ const ribbonTexts = [
 
 const Ribbon = () => {
   // Repeat array 3 times so there's no empty space
-  const repeatedTexts = Array(3).fill(ribbonTexts).flat();
+  const repeatedTexts = Array(6).fill(ribbonTexts).flat();
 
   return (
-    <main className='w-full bg-brand py-1'>
+    <main className='w-full bg-brand py-2'>
       <Marquee direction='left' speed={80} gradient={false}>
         {repeatedTexts.map((text, index) => (
           <p
             key={index}
-            className='text-white text-xs px-4 tracking-wide'
+            className='text-white text-xs px-6 tracking-wider'
           >
             {text}
           </p>
